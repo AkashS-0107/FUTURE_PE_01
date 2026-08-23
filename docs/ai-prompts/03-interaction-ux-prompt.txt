@@ -1,0 +1,81 @@
+# PHASE 3 — INTERACTION, UX & FUNCTIONAL COMPLETION
+# TITAN FITNESS CLUB
+
+Phase 1 and Phase 2 are complete.
+
+Continue ONLY in:
+https://github.com/AkashS-0107/FUTURE_PE_01
+
+Do NOT touch:
+https://github.com/AkashS-0107/gym_webdev_p3
+
+IMPORTANT:
+The current website is functional but visually generic.
+DO NOT perform the major visual redesign during Phase 3.
+
+Phase 3 exists to complete and stabilize:
+- Navigation
+- Interactions
+- Responsiveness
+- Accessibility
+- Animation behavior
+- UX
+- Section connectivity
+- Technical consistency
+
+After Phase 3 is complete, we will perform a separate full-site visual redesign/revamp.
+
+==================================================
+1. NAVIGATION
+==================================================
+Required navigation:
+Home
+Why Titan / About
+Training
+Facilities
+Experience
+Membership
+Contact
+
+Verify that every navigation item correctly scrolls to its section.
+Use section IDs: #home, #why-titan, #training, #facilities, #experience, #membership, #contact.
+
+==================================================
+2. ACTIVE NAVIGATION STATE
+==================================================
+IntersectionObserver-based approach for smooth active link tracking without scroll spam or flickering.
+
+==================================================
+3. MOBILE NAVIGATION
+==================================================
+Hamburger menu, scroll locking, Escape key closing, touch target sizing (>=44px), smooth Framer Motion drawer transitions.
+
+==================================================
+4. CTA INTERACTIONS
+==================================================
+Verify all major CTAs: Hero, Membership, Contact, Google Maps, Phone tel:09710693303 links.
+
+==================================================
+5. GOOGLE MAPS
+==================================================
+Verified address: 1st Floor, 18, PV Rajamannar Salai, Kamaraj Nagar, Vijayaraghavapuram, K. K. Nagar, Chennai, Tamil Nadu 600093. Plus Code: 26V3+78 Chennai, Tamil Nadu.
+
+==================================================
+6. FRAMER MOTION & 7. REDUCED MOTION
+==================================================
+Functional consistency, non-blocking animations, prefers-reduced-motion support via useReducedMotion and CSS media query.
+
+==================================================
+8. RESPONSIVE QA & 9. IMAGE BEHAVIOR
+==================================================
+Test 375px to 1920px breakpoints. Fix overflow, layout shifts, lazy loading below fold.
+
+==================================================
+10. ACCESSIBILITY & 11. INTERACTION CONSISTENCY
+==================================================
+Semantic HTML, single H1, heading hierarchy, keyboard navigation, focus-visible indicators, WCAG AA compliance.
+
+==================================================
+12. PERFORMANCE & 13. CODE QUALITY
+==================================================
+Lightweight implementation, clean event listeners, TypeScript compilation & production build verification.

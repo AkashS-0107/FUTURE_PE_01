@@ -1,0 +1,50 @@
+============================================================
+TITAN FITNESS CLUB — MASTER UI/UX REBUILD DOCUMENTATION
+============================================================
+
+1. UI/UX PRO MAX ANALYSIS & DESIGN DECISIONS:
+------------------------------------------------------------
+- Identity: Strong, Athletic, Premium, Modern, Confident, Local Fitness Brand.
+- Palette: Near-black (#08080A), Graphite surfaces (#0F1015, #151722), Surgical Brand Accent (#FF5500), Warm White headlines (#FFFFFF), Muted Neutral (#9CA3AF / #D1D5DB).
+- Rating System: Displayed strictly as ★★★★★ or 5 / 5 with 103 Google Reviews. Zero decimal formatting (no 5.0 / 5).
+- Card Reduction: Replaced repetitive 6-card SaaS grids with editorial rows, bento grids, open layouts, numbered pillars, and image spotlights.
+
+2. TASTE SKILL CONFIGURATION & DIALS:
+------------------------------------------------------------
+- Design Read: Local fitness brand landing page for progress-focused gym members in Chennai, with a dark athletic editorial visual language.
+- DESIGN_VARIANCE: 8 / 10 (Asymmetry, mixed editorial scales, horizontal numbered feature rows, bento spotlight layout).
+- MOTION_INTENSITY: 6 / 10 (Hero kinetic text reveal, scroll-triggered section entrance, level 1-4 motion hierarchy, full prefers-reduced-motion support).
+- VISUAL_DENSITY: 4 / 10 (Generous spacing, structural 1px borders, zero card clutter).
+
+3. FONTJOY TYPOGRAPHY SYSTEM:
+------------------------------------------------------------
+- Display Font: Outfit (Font-black, uppercase, letter-spacing -0.03em, leading 0.88-0.95).
+- Body & UI Font: Inter (Font-normal/medium/semibold, high legibility).
+- Monospace Accents: System Monospace (Badges, Plus code, numbers, timestamps).
+
+4. REFERENCE RESEARCH PATTERNS ADOPTED:
+------------------------------------------------------------
+- Athletic Editorial Layout: Clean line dividers, high-contrast typography, top orange accent strokes.
+- Bento Spotlight: Asymmetric main showcase + split supporting gallery grid.
+- Interactive Training Rows: Stacked horizontal rows (01-04) with hover background highlights.
+
+5. COMPONENT & MOTION SOURCES (REACT BITS / CULT UI / MOTION PRIMITIVES / AMICRO):
+------------------------------------------------------------
+- React Bits: Hero kinetic typography reveal, staggered text animation, bento layout grids.
+- Cult UI: Active navigation pill indicator, direct action pill buttons, verified badge elements.
+- Motion Primitives: Level 1 to Level 4 structured motion system with spring transitions.
+- Amicro: Micro-transition feedback (transform -translate-y-0.5, scale 1.02, instant keyboard focus rings, subtle hover borders).
+
+6. ASSET MAP & INTEGRITY:
+------------------------------------------------------------
+- hero-bg.png: Primary legitimate photograph of Titan Fitness Club's real interior gym floor and equipment.
+- logo.png: Official Titan Fitness Club logo asset.
+- titan-equipment.svg, titan-training-area.svg, titan-facility.svg, titan-gym-floor.svg: Graphic vector illustrations (properly labeled as visual diagrams, not misrepresented as photos).
+
+7. DATA & ACCURACY:
+------------------------------------------------------------
+- Location: 1st Floor, 18, PV Rajamannar Salai, Kamaraj Nagar, Vijayaraghavapuram, K. K. Nagar, Chennai, Tamil Nadu 600093
+- Phone: 09710693303 (Call links: tel:09710693303)
+- Plus Code: 26V3+78 Chennai, Tamil Nadu
+- Google Reviews: ★★★★★ • 103 Google Reviews
+- Zero fake prices, schedules, quotes, or fake membership tiers.

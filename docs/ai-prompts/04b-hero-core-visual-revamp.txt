@@ -1,0 +1,28 @@
+# PHASE 4B — HERO + CORE VISUAL REVAMP
+# TITAN FITNESS CLUB
+
+Phase 4A is complete.
+The Titan Fitness Club header/navbar has been completely redesigned and is now the visual anchor of the website.
+
+Core Objectives:
+Continue Phase 4 visual transformation for:
+1. Hero
+2. Why Titan
+3. Training
+4. Facilities
+5. Member Experience
+
+Do NOT redesign MembershipCTA, Contact, or Footer during this phase.
+
+Visual direction: Premium, Athletic, Modern, Confident, Image-driven, Editorial fitness brand experience matching Phase 4A dark header styling (#08080A, #0F1015, #15171F, #FF5500).
+
+Strict Rules:
+- Use legitimate local Titan assets where available.
+- Google Maps image handling: Do not fabricate photos, hotlink, or scrape endpoints. Use visual placeholders with correct aspect ratio if photos unavailable.
+- Hero: Dominant headline "TRAIN STRONG. LIVE STRONGER.", eyebrow "K. K. NAGAR • CHENNAI", primary CTA "START YOUR FITNESS JOURNEY" (#contact), secondary CTA "CALL TITAN FITNESS CLUB" (tel:09710693303), secondary rating element "5.0 / 5" (103 Google Reviews).
+- Why Titan: Asymmetric editorial composition, "Built for people who take their training seriously." Primary feature "Modern Equipment", secondary "Knowledgeable Trainers" & "Clean & Spacious", supporting "Beginner Friendly", "Personalized Workouts", "Motivating Atmosphere".
+- Training: 4 horizontal stacked feature rows (01 PERSONALIZED TRAINING, 02 STRENGTH & FITNESS, 03 GUIDED WORKOUTS, 04 GROUP TRAINING).
+- Facilities: Image-first layout composition, 1 primary showcase image container, 2 supporting images, verified themes.
+- Member Experience: Trust-focused rating display (5.0 / 5, 103 Google Reviews) with link to Google Maps listing, paraphrased review theme pillars without fabricated quotes or fake profiles.
+- Code quality: React 19, TypeScript, Vite, Tailwind CSS, Framer Motion, Lucide React.
+- Verification: `npx tsc --noEmit` and `npm run build`.

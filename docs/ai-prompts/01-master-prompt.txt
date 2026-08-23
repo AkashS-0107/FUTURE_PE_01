@@ -1,0 +1,19 @@
+# TITAN FITNESS CLUB — MASTER PROMPT
+
+Primary Repository: https://github.com/AkashS-0107/FUTURE_PE_01
+Target Secondary Repository (Final Release Only): https://github.com/AkashS-0107/gym_webdev_p3
+
+Business Details:
+- Name: Titan Fitness Club
+- Address: 1st Floor, 18, PV Rajamannar Salai, Kamaraj Nagar, Vijayaraghavapuram, K. K. Nagar, Chennai, Tamil Nadu 600093
+- Phone: 097106 93303
+- Rating: 5.0 / 5 (103 Google Reviews)
+
+Stack:
+- React 19, TypeScript, Vite, Tailwind CSS, Framer Motion, Lucide React
+
+Key Objectives:
+- Modern high-contrast dark aesthetic
+- Accurate local business presence in K. K. Nagar, Chennai
+- Zero fake claims or fabricated pricing
+- Full mobile responsive compliance across all viewports

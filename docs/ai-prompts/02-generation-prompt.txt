@@ -1,0 +1,13 @@
+# PHASE 1 GENERATION PROMPT — FOUNDATION SETUP
+
+Task:
+Initialize Phase 1 of Titan Fitness Club website.
+
+Deliverables:
+- Project folder structure setup
+- Tailwind CSS v4 & Google Fonts integration (Outfit + Inter)
+- Types & business data configuration
+- Navigation Bar (Navbar) component with mobile drawer & active state
+- Hero section component with headline "Train Strong. Live Stronger."
+- Footer component with verified business address, phone, and quick links
+- Main App assembly (App.tsx)

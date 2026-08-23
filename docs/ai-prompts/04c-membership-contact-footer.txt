@@ -1,0 +1,36 @@
+==================================================
+PHASE 4C — MEMBERSHIP + CONTACT + FOOTER VISUAL REVAMP
+TITAN FITNESS CLUB
+==================================================
+
+Phase 4C completes the full visual transformation for Titan Fitness Club.
+
+--------------------------------------------------
+OBJECTIVES & RESULTS
+--------------------------------------------------
+1. MEMBERSHIP CTA (src/components/sections/MembershipCTA.tsx):
+   - Redesigned into a dark editorial transition section using deep graphite background (#08080A) and subtle background image overlay with heroBg.
+   - Primary Headline: "READY TO START TRAINING?" with orange accent (#FF5500).
+   - Primary CTA: "GET MEMBERSHIP INFORMATION" -> #contact
+   - Secondary CTA: "CALL 097106 93303" -> tel:09710693303
+   - Strictly preserved verified business claims without inventing fake pricing, fake tiers, or discounts.
+
+2. CONTACT SECTION (src/components/sections/Contact.tsx):
+   - Redesigned into an editorial split layout centered on local business destination.
+   - Left Column: Location heading "FIND TITAN.", verified gym address, Plus Code (26V3+78 Chennai, Tamil Nadu), and direct phone number.
+   - Right Column: Editorial integrated direct-action controls ("CALL TITAN FITNESS CLUB" and "GET DIRECTIONS" with target="_blank" rel="noopener noreferrer").
+   - Client-side Contact Form: Minimal accessible fields (Name, Phone, Notes) with clear focus states and honest confirmation message: "Your enquiry has been prepared. Call 097106 93303 or visit the club directly to confirm details."
+
+3. FOOTER (src/components/layout/Footer.tsx):
+   - Compact premium footer using the official logo image asset (src/assets/logo.png).
+   - Brand statement: "Train with purpose. Build strength. Keep moving."
+   - Quick section links for all 7 primary navigation targets.
+   - Verified location details and clickable phone link.
+
+--------------------------------------------------
+TECHNICAL & BUILD VERIFICATION
+--------------------------------------------------
+- TypeScript: npx tsc --noEmit (PASSED - 0 errors)
+- Production Build: npm run build (PASSED - clean Vite bundle)
+- Accessibility: Semantic headings, aria-labels, aria-current tracking, visible focus indicators, reduced motion support.
+- Responsive: Verified layout integrity across 375px, 390px, 430px, 768px, 1024px, 1280px, 1440px, 1920px.

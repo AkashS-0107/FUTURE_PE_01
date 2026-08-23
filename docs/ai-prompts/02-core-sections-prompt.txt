@@ -1,0 +1,30 @@
+PHASE 2 MASTER PROMPT
+TITAN FITNESS CLUB — CORE WEBSITE SECTIONS
+
+Continue development ONLY in:
+https://github.com/AkashS-0107/FUTURE_PE_01
+
+OBJECTIVE:
+Build the remaining core sections of the Titan Fitness Club website:
+1. Why Titan (#why-titan)
+2. Training (#training)
+3. Facilities (#facilities)
+4. Member Experience (#experience)
+5. Membership CTA (#membership)
+6. Contact (#contact)
+
+Maintain Phase 1 Navbar, Hero, Footer, typography, color system, and Framer Motion animation language without unnecessary redesigns.
+
+REAL GYM IMAGES & ASSETS:
+- Prefer real Titan Fitness Club imagery where legally/technically permitted.
+- Store local assets in src/assets/images/ (e.g. titan-gym-floor.svg, titan-equipment.svg, titan-training-area.svg, titan-facility.svg).
+- Do not create fictional AI-generated photographs claiming to be Titan Fitness Club.
+
+CONTACT SECTION:
+- Do NOT implement a fake contact submission system or fake success messages.
+- Focus on verified address, clickable phone (097106 93303), Google Maps link, and Plus Code (26V3+78 Chennai, Tamil Nadu).
+
+DATA & STYLING:
+- All business information centralized in src/data/gymData.ts.
+- TypeScript interfaces defined in src/types/index.ts.
+- Responsive testing across all viewport breakpoints (375px to 1920px).

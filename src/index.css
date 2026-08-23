@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --header-height: 80px;
+    --color-bg-base: #0c0c0b;
+    --color-bg-surface: #141412;
+    --color-bg-elevated: #1c1b18;
+    --color-bg-overlay: #24231f;
+    --color-border-subtle: rgba(255, 255, 255, 0.08);
+    --color-border-hover: rgba(255, 255, 255, 0.18);
+    --color-text-primary: #f7f6f2;
+    --color-text-secondary: #a8a69e;
+    --color-text-muted: #737168;
+    --color-accent-gold: #c5a059;
+    --color-accent-gold-glow: rgba(197, 160, 89, 0.15);
+    --color-accent-clay: #b87a55;
+    --color-accent-sage: #8e9b88;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+    overflow-x: hidden;
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .scroll-section-offset {
+    scroll-margin-top: var(--header-height);
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    selection-background-color: #c5a059;
+    selection-color: #0c0c0b;
+  }
+
+  /* Accessibility focus ring */
+  *:focus-visible {
+    outline: 2px solid var(--color-accent-gold);
+    outline-offset: 3px;
+  }
+
+  /* Custom minimal scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0c0c0b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #24231f;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3b3934;
+  }
+}
+
+/* Editorial & Architectural Typography Utility Classes */
+.font-serif-editorial {
+  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  font-feature-settings: "liga" 1, "dlig" 1;
+}
+
+.font-sans-architectural {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.011em;
+}
+
+/* Glass & Texture Overlays */
+.architectural-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.architectural-dots-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Custom Micro-Interaction & Animation Utility Classes */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes pathDraw {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+.animate-float {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.path-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: pathDraw 2.5s ease-out forwards;
+}
+
+/* Custom Spring feedback for button press */
+.active-spring:active {
+  transform: scale(0.97);
+  transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,13 @@
+PHASE 4 — FULL VISUAL REVAMP PROMPT
+TITAN FITNESS CLUB (K. K. NAGAR, CHENNAI)
+
+Core Objective:
+Transform the Titan Fitness Club website into a bold, high-energy, editorial fitness brand website. Eliminate AI template repetitions and card overuse. Establish strong brand character, high-contrast typography hierarchy, asymmetric layouts, cinematic facility imagery, and conversion-focused local business destination flows.
+
+Key Requirements:
+1. DESIGN SYSTEM & TOKENS: Near-black/graphite foundation (#08080A, #0F1015, #151722), off-white typography, surgical #FF5500 accenting, subtle 1px editorial borders.
+2. TYPOGRAPHY: Editorial scale with Outfit and Inter font fallbacks, massive tight-leading headlines (TRAIN STRONG. LIVE STRONGER.), mono tags.
+3. HERO: Full-viewport hero, immersive background image with dark vignette overlay, location tag (K. K. Nagar • Chennai), dual CTAs, integrated micro-trust strip.
+4. CARD REDUCTION: Replace 6-card and SaaS grids with mixed-weight spotlight layouts, 01-04 horizontal feature rows, and typographic theme pillars.
+5. REAL IMAGERY: Use local Titan Fitness Club images (hero-bg.png, titan-gym-floor.svg, titan-equipment.svg, titan-training-area.svg, titan-facility.svg).
+6. ACCESSIBILITY & STABILITY: Preserve IntersectionObserver nav tracking, keyboard navigation, focus states, reduced-motion behavior, and verified business details (phone 097106 93303, address, 5.0/5 rating, 103 Google reviews, Google Maps link).
