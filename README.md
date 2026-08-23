@@ -265,6 +265,8 @@ The application is ready for further production hardening, backend integration, 
 
 Computer Science & Engineering  
 Artificial Intelligence & Machine Learning
+linkedin : linkedin.com/in/akash-suresh-53850a326/
+github : github.com/AkashS-0107
 
 ## License
 
