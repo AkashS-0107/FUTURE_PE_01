@@ -1,211 +1,273 @@
 # Design Haven
 
-Design Haven is an inspiration-first interior space digital sanctuary crafted for creative homeowners, individuals renovating older properties, and homeowners planning new architectural builds. The web application acts as a conceptual and visual bridge—helping visitors explore interior design directions, articulate fragmented ideas, and naturally progress toward a structured project enquiry without feeling pressured by aggressive sales tactics.
+A modern, image-led interior design concept platform built to explore spatial identity, architectural atmosphere, and personal design direction.
 
----
+Design Haven moves away from the typical template-heavy portfolio experience. The interface is structured as an editorial journey where interior imagery, typography, motion, and interaction guide visitors from inspiration to a project enquiry.
 
-## Problem Statement
+## Overview
 
-Homeowners seeking professional interior design guidance online face four primary obstacles:
+The project focuses on a calm, architectural visual language built around:
 
-1. **Articulation Difficulty:** Homeowners frequently possess initial creative ideas or mood preferences, but struggle to shape them into a cohesive, architecturally feasible visual vision.
-2. **Aggressive Lead Capture Friction:** Traditional interior design platforms push intrusive pop-ups, immediate sales forms, or catalog carts before establishing brand trust or helping users understand their requirements.
-3. **Choice Overwhelm & Abandonment:** Confusing navigation, dense technical jargon, and cluttered style options create decision fatigue, causing visitors to abandon their search.
-4. **Superficial Decor Orientation:** Existing market solutions prioritize quick cosmetic fixes over holistic, lifestyle-driven spatial transformations.
+- Image-first storytelling
+- Editorial typography and generous spacing
+- Curated interior design directions
+- Interactive spatial exploration
+- Responsive layouts across desktop, tablet, and mobile
+- Accessible navigation and controls
+- A guided multi-step project enquiry experience
 
----
+The application uses a curated collection of interior images across the hero, galleries, style exploration, transformation scenarios, and architectural showcase sections.
 
-## Solution
+## Features
 
-Design Haven solves these friction points through an inspiration-led conversion experience:
+### Cinematic Hero Experience
 
-* **Inspiration-First Philosophy:** Displays curated spatial directions, material tactility, and architectural lighting concepts prior to requesting commitment.
-* **Interactive Style & Vision Workbench:** Features a live vision explorer allowing visitors to select aesthetic directions and interactively calibrate color warmth and sunlight diffusion parameters.
-* **Property Context Matrix:** Tailors spatial transformation rationale across four property stages (Refresh, Renovation, New Construction, Vision).
-* **Guided Project Enquiry Gateway:** Replaces aggressive sales forms with a transparent, 3-step questionnaire that guides users through personal details, property context, and vision notes.
+A visual hero designed around curated architectural imagery with:
 
----
+- Multiple interior slides
+- Previous and next navigation
+- Side-image interaction
+- Mouse drag and mobile swipe support
+- Keyboard navigation
+- Dynamic slide metadata
+- Smooth transitions with reduced-motion support
+- Contextual calls to action
 
-## Key Features
+### Curated Spatial Directions
 
-* **Asymmetric Hero Experience:** Display headline narrative, perspective focus switcher (Spatial Volume, Light Corridor, Material Tactility), and interactive spatial hotspots with context tooltips.
-* **Curated Inspiration Showcase:** Filterable Bento Grid showcase categorizing concepts by room type (Living, Kitchen, Dining, Sanctuary Suite) with detailed architectural rationale lightboxes.
-* **Interactive Style & Vision Workbench:** Real-time visual spec viewport with live SVG lighting calculation reacting dynamically to temperature warmth and diffusion depth range sliders.
-* **Residential Transformation Matrix:** Property-stage selector highlighting typical challenges, Design Haven solutions, and key transformation outcomes.
-* **4-Phase Process Roadmap:** Transparent timeline demystifying how ideas evolve from initial vision to final execution with explicit client and designer role breakdowns.
-* **Philosophy & Anti-Friction FAQs:** High-contrast editorial accordion addressing common hesitations regarding budget control, process transparency, and consultation expectations.
-* **3-Step Guided Enquiry Gateway:** Multi-step modal questionnaire with client-side field validation, character counter, and instant reference ID confirmation screen.
+An interactive visual exploration section that helps users move through different architectural atmospheres and spatial directions.
 
----
+### Architectural Room Showcase
 
-## User Experience
+An editorial gallery composition using asymmetric image layouts rather than repetitive card grids. The section presents multiple interior directions with supporting visual hierarchy and staggered motion.
 
-Design Haven is structured around a 6-stage progressive visitor mindset model:
+### Inspiration Showcase
 
-$$\text{Curiosity} \longrightarrow \text{Inspiration} \longrightarrow \text{Exploration} \longrightarrow \text{Possibility} \longrightarrow \text{Confidence} \longrightarrow \text{Action}$$
+A curated collection of interior spaces organised around different room and design contexts, including living spaces, kitchens, dining areas, bathrooms, and residential environments.
 
-1. **Curiosity:** Captures visitor interest with an atmospheric hero layout and core design principles.
-2. **Inspiration:** Engages visitors through visual direction galleries and architectural case rationale.
-3. **Exploration:** Enables interactive style calibration via warmth and diffusion sliders.
-4. **Possibility:** Builds personal relevance across property transformation stages (Refresh, Renovation, Construction).
-5. **Confidence:** Instills trust through transparent 4-phase process roadmaps and anti-pressure FAQs.
-6. **Action:** Guides high-intent visitors into a multi-step project enquiry dialogue.
+### Style Explorer
 
----
+An interactive section for exploring aesthetic directions through:
 
-## Technology Stack
+- Tactile and warm environments
+- Sculptural and clean compositions
+- Architectural and raw spaces
+- Wabi-sabi inspired atmospheres
 
-* **Core Framework:** [React 19](https://react.dev/) with [TypeScript](https://www.typescriptlang.org/)
-* **Build Tool & Dev Server:** [Vite 8](https://vitejs.dev/)
-* **Styling Engine:** [Tailwind CSS v4](https://tailwindcss.com/) with Vanilla CSS custom design tokens (`index.css`)
-* **Icon Library:** [Lucide React](https://lucide.dev/)
-* **Static Code Analysis:** [OxLint](https://oxc.rs/docs/guide/usage/linter.html) & TypeScript Compiler (`tsc`)
-* **Typography:** Playfair Display (Serif Editorial) & Inter (Sans Architectural) via Google Fonts
+Each direction is paired with relevant interior imagery and material-focused visual storytelling.
 
----
+### Transformation Context
+
+A narrative exploration of different project situations:
+
+- Existing home refresh
+- Renovation
+- New construction
+- Concept refinement
+
+The interface presents the design situation, challenge, and opportunity without turning the website into another dashboard pretending to be architecture.
+
+### Collaborative Process
+
+A four-stage design journey:
+
+1. Inspiration
+2. Concept
+3. Refinement
+4. Realization
+
+### Philosophy, Trust and FAQs
+
+A typography-led trust section with:
+
+- Design philosophy
+- Collaborative principles
+- Editorial bento composition
+- Interactive FAQ accordion
+
+### Guided Project Enquiry
+
+A multi-step enquiry flow covering:
+
+1. Contact details
+2. Property context and project stage
+3. Vision and project scope
+
+The flow includes validation, loading states, submission feedback, generated enquiry references, timestamps, and local persistence.
+
+## Tech Stack
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Motion-based UI animations
+- Lucide icons
+- Browser localStorage for the current enquiry persistence layer
 
 ## Project Structure
 
 ```text
-FUTURE_PE_01/
-├── docs/                        # Complete project documentation suite
-│   ├── PRD.md                   # Product Requirements Document
-│   ├── TRD.md                   # Technical Requirements Document
-│   ├── APP_FLOW.md              # Application Flow Specification
-│   ├── UI_UX_DESIGN_BRIEF.md    # UI/UX & Editorial Design Specification
-│   ├── BACKEND_SCHEMA.md        # Backend Schema & API Contract Specification
-│   └── IMPLEMENTATION_PLAN.md   # Phased Implementation Roadmap
-├── prompts/                     # Prompt engineering workflow & copy evaluation logs
-├── public/                      # Public static assets & favicon
-├── src/
-│   ├── assets/                  # Project media resources
-│   ├── components/
-│   │   ├── enquiry/             # Guided Enquiry Form & Modal components
-│   │   ├── layout/              # Header, Mobile Drawer, Footer, Main Layout
-│   │   ├── shared/              # Brand Logo & SVG Interior Image Frame Renders
-│   │   └── ui/                  # Primitive UI design system (Button, Input, Select, Modal, Tabs, etc.)
-│   ├── data/                    # Decoupled content store (homeContent.ts)
-│   ├── hooks/                   # Custom hooks (useScrollReveal, useReducedMotion)
-│   ├── services/                # Frontend API abstraction layer (enquiryService.ts)
-│   ├── types/                   # TypeScript interface definitions (content.ts, enquiry.ts)
-│   ├── App.tsx                  # Root application component
-│   ├── index.css                # Core design system tokens & utility classes
-│   └── main.tsx                 # React DOM entry point
-├── index.html                   # HTML5 entry template
-├── package.json                 # Dependency manifest & scripts
-├── tsconfig.json                # TypeScript project configuration
-└── vite.config.ts               # Vite bundler configuration
+src/
+├── components/
+│   ├── enquiry/
+│   ├── hero/
+│   ├── layout/
+│   ├── shared/
+│   └── ui/
+├── data/
+│   ├── heroSlides.ts
+│   ├── homeContent.ts
+│   ├── interiorImages.ts
+│   └── spatialDirections.ts
+├── hooks/
+├── lib/
+├── sections/
+│   └── home/
+├── services/
+├── types/
+├── App.tsx
+├── index.css
+└── main.tsx
+
+public/
+└── images/
 ```
 
----
+## Design Direction
 
-## Getting Started
+The visual system uses:
+
+- A dark, warm architectural palette
+- Editorial serif typography for display content
+- Monospace accents for labels and navigation metadata
+- Warm gold and copper accents
+- High-impact interior photography
+- Asymmetric grids and editorial compositions
+- Minimal overlay UI
+- No unnecessary badges, metric cards, or decorative dashboard clutter
+
+The intention is simple: the spaces should remain the main character.
+
+## Accessibility and Interaction
+
+The application includes:
+
+- Semantic layout landmarks
+- Keyboard-accessible navigation
+- Accessible buttons and carousel controls
+- Focus states
+- Reduced-motion support
+- Responsive layouts
+- Touch and pointer interactions
+- Scroll offset handling for fixed navigation
+
+## Running Locally
 
 ### Prerequisites
 
-Ensure [Node.js](https://nodejs.org/) (v18+ recommended) and `npm` are installed.
+- Node.js
+- npm
+- Git
 
-### Installation
+### Clone the repository
 
-1. Clone or navigate to the project directory:
-   ```bash
-   cd e:/career/GYM
-   ```
+```bash
+git clone <repository-url>
+cd FUTURE_PE_01
+```
 
-2. Install project dependencies:
-   ```bash
-   npm install
-   ```
+### Install dependencies
 
-3. Start the local development server:
-   ```bash
-   npm run dev
-   ```
+```bash
+npm install
+```
 
-4. Open your browser and navigate to `http://localhost:5173`.
+### Start the development server
 
----
+```bash
+npm run dev
+```
 
-## Build
+Vite will provide the local development URL in the terminal.
 
-To compile the production-ready distribution bundle:
+## Quality Checks
+
+### TypeScript
+
+```bash
+npx tsc --noEmit
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+### Production Build
 
 ```bash
 npm run build
 ```
 
-The output artifacts will be created in the `dist/` directory:
-* `dist/index.html`
-* `dist/assets/index-[hash].css`
-* `dist/assets/index-[hash].js`
+The production output is generated in:
 
-To preview the production build locally:
-
-```bash
-npm run preview
+```text
+dist/
 ```
 
-To run static type checking and linting:
+## Current Enquiry Architecture
 
-```bash
-# Type check
-npx tsc --noEmit
+The current enquiry service is implemented as a frontend-oriented service layer with validation, sanitization, generated identifiers, timestamps, status assignment, and local persistence.
 
-# Lint check
-npm run lint
-```
+For a production deployment, this layer should be connected to a real backend and database.
 
----
+Recommended production upgrades include:
 
-## Enquiry Flow
+- Server-side enquiry API
+- Database persistence
+- Email notifications
+- Admin enquiry management
+- Rate limiting and abuse protection
+- Environment-based configuration
+- Analytics
+- SEO metadata and structured data
+- Sitemap and robots configuration
 
-### Current Implementation
+## Development Approach
 
-The project enquiry system is implemented as a client-side service abstraction layer ([enquiryService.ts](file:///e:/career/GYM/src/services/enquiryService.ts)):
+Design Haven was developed through iterative UI and UX refinement.
 
-1. **Client-Side Validation:** Form inputs are validated in real-time across 3 steps (`fullName`, `email`, `phone`, `propertyType`, `projectStage`, and optional `vision` notes).
-2. **Input Sanitization:** User text strings are sanitized to prevent script injection.
-3. **Simulated Latency:** Submitting an enquiry triggers a `700ms` asynchronous delay to model realistic network roundtrip feedback.
-4. **Client Persistence:** Validated enquiries generate a unique reference ID (e.g., `enq_1724410000000_abc123`) and persist to browser `localStorage` under `design_haven_enquiries`.
-5. **Confirmation UI:** Renders an explicit confirmation screen with the reference ID, property parameters, and expected follow-up steps.
+The project evolved through:
 
-### Future Backend Integration
+- Technical foundation and component architecture
+- Homepage narrative development
+- Real interior image integration
+- Interaction and motion refinement
+- Editorial composition restructuring
+- Header and footer simplification
+- Responsive regression fixes
+- Hero redesign
+- Gallery and showcase improvements
 
-When connecting to a live backend service:
-* The `submitProjectEnquiry` service method in `enquiryService.ts` will be updated to transmit HTTP POST requests to `POST /api/enquiries`.
-* The payload schema strictly satisfies the contract specified in [docs/BACKEND_SCHEMA.md](docs/BACKEND_SCHEMA.md).
-* Server-side database persistence (SQL/NoSQL) and CRM/email dispatch webhooks can be wired without modifying any UI component markup.
+The emphasis was placed on inspecting the rendered interface and refining composition, spacing, image hierarchy, and interaction behavior rather than assuming that a component is good merely because TypeScript has stopped complaining.
 
----
+## Status
 
-## Accessibility
+**Current status:** Frontend concept and interactive experience complete.
 
-Design Haven is built to meet **WCAG 2.1 Level AA** standards:
+The application is ready for further production hardening, backend integration, deployment configuration, and final content or branding adaptation.
 
-* **Semantic Landmarks:** Uses HTML5 `<header>`, `<nav>`, `<main>`, `<section>`, and `<footer>` elements.
-* **Keyboard Navigation:** Operable via `Tab`, `Shift+Tab`, `Space`, and `Enter`. Multi-step form switches focus logically.
-* **Modal Accessibility:** Modals implement `role="dialog"`, `aria-modal="true"`, Escape key listeners, and backdrop click handlers.
-* **Visible Focus Rings:** Enforces a prominent `2px solid #c5a059` focus ring with a 3px offset (`*:focus-visible`) for all focusable elements.
-* **Form Field Associations:** Labels are linked to inputs via explicit `htmlFor` / `id` pairs, accompanied by `aria-invalid` and `aria-describedby` error bindings.
-* **Prefers-Reduced-Motion:** Automatically respects user system preferences by disabling CSS animations and transform shifts (`useReducedMotion.ts`).
+## Author
 
----
+**Akash Suresh**
 
-## Responsive Design
+Computer Science & Engineering  
+Artificial Intelligence & Machine Learning
 
-The application enforces a fluid responsive layout tested across multiple viewport tiers:
+## License
 
-* **Desktop (1440px+ & 1280px):** Multi-column asymmetric grids, expanded navigation links, side-by-side visual spec viewports.
-* **Tablet (1024px & 768px):** Adaptive 2-column bento grids, inward-opening hotspot tooltips, compressed header bar.
-* **Mobile (430px, 390px, 360px):** Single-column stacked layouts, mobile slide-over navigation drawer, horizontal touch-scrolling tab filters, full-width touch targets (minimum 44px height).
+This project is intended as a portfolio and design concept implementation.
 
----
-
-## Future Enhancements
-
-The following expansion capabilities represent logical future enhancements:
-
-1. **Live REST API Endpoint:** Replace client `localStorage` simulation with a live Node.js/Go/Python backend API supporting PostgreSQL database storage.
-2. **CRM & Email Notification Integration:** Wire incoming enquiry submissions directly to CRM webhooks (e.g., HubSpot) and automated email notifications (e.g., Resend, SendGrid).
-3. **Headless CMS Content Management:** Transition the static content store (`homeContent.ts`) to a Headless CMS (e.g., Sanity, Strapi) for real-time editorial updates.
-4. **Client Consultation Dashboard:** Build an authenticated administrative portal for Design Haven staff to review incoming enquiries, update submission statuses, and schedule consultation calls.
+The source code, branding, visual assets, and interior imagery should only be reused or redistributed with appropriate permission from their respective owners.
