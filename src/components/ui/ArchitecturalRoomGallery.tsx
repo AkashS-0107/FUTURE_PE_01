@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { motion, type Variants } from "motion/react";
-import { Eye, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { INTERIOR_IMAGES } from "../../data/interiorImages";
 
 export interface GalleryItem {
@@ -27,11 +27,6 @@ export interface ArchitecturalRoomGalleryProps {
   className?: string;
 }
 
-// Default 4-image sequence as requested in core prompt:
-// img1 -> Warm Architectural Sanctuary
-// img3 -> Double-Height Architectural Salon
-// img5 -> Natural Light / Skylight Study
-// img16 -> Sculptural Contemporary Living
 /* oxlint-disable-next-line react/only-export-components */
 export const DEFAULT_GALLERY_ITEMS: GalleryItem[] = [
   {
@@ -96,62 +91,31 @@ export const DEFAULT_GALLERY_ITEMS: GalleryItem[] = [
   },
 ];
 
-// Restrained blur & translate reveal variants
 const galleryVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    filter: "blur(10px)",
-    y: 24,
-  },
+  hidden: { opacity: 0, filter: "blur(8px)", y: 20 },
   visible: {
     opacity: 1,
     filter: "blur(0px)",
     y: 0,
-    transition: {
-      duration: 0.75,
-      ease: [0.25, 0.1, 0.25, 1],
-    },
+    transition: { duration: 0.65, ease: [0.25, 0.1, 0.25, 1] },
   },
 };
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.14,
-      delayChildren: 0.15,
-    },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.08 } },
 };
 
-// Reusable motion wrapper container
-export const GalleryStagger: React.FC<{
-  children: React.ReactNode;
-  className?: string;
-}> = ({ children, className = "" }) => (
-  <motion.div
-    variants={containerVariants}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, amount: 0.15 }}
-    className={className}
-  >
+export const GalleryStagger: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = "" }) => (
+  <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.12 }} className={className}>
     {children}
   </motion.div>
 );
 
-// Reusable motion child wrapper
-export const GalleryAnimated: React.FC<{
-  children: React.ReactNode;
-  className?: string;
-}> = ({ children, className = "" }) => (
-  <motion.div variants={galleryVariants} className={className}>
-    {children}
-  </motion.div>
+export const GalleryAnimated: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = "" }) => (
+  <motion.div variants={galleryVariants} className={className}>{children}</motion.div>
 );
 
-// Individual Gallery Cell Component with Sharp Edges (border-radius: 0)
 export interface ArchitecturalGalleryCellProps {
   item: GalleryItem;
   index: number;
@@ -163,32 +127,22 @@ export interface ArchitecturalGalleryCellProps {
   onClick: (item: GalleryItem) => void;
 }
 
-export const ArchitecturalGalleryCell: React.FC<ArchitecturalGalleryCellProps> = ({
-  item,
-  index,
-  gridClass,
-  isHovered,
-  isAnyHovered,
-  isSelected,
-  onHover,
-  onClick,
-}) => {
-  // Editorial brightness: full/boosted when hovered, slightly muted (0.88) when another item in group is hovered
-  const brightnessClass = isHovered
-    ? "brightness-[1.04] scale-[1.03]"
+export const ArchitecturalGalleryCell: React.FC<ArchitecturalGalleryCellProps> = ({ item, index, gridClass, isHovered, isAnyHovered, isSelected, onHover, onClick }) => {
+  const imageState = isHovered
+    ? "brightness-[1.04] scale-[1.025]"
     : isAnyHovered
-    ? "brightness-[0.88] scale-[1.0]"
-    : "brightness-100 scale-100";
+      ? "brightness-[0.86] scale-100"
+      : "brightness-100 scale-100";
 
   return (
-    <GalleryAnimated className={gridClass}>
+    <GalleryAnimated className={`min-w-0 min-h-0 ${gridClass}`}>
       <div
         role="button"
         tabIndex={0}
         onClick={() => onClick(item)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
             onClick(item);
           }
         }}
@@ -196,54 +150,31 @@ export const ArchitecturalGalleryCell: React.FC<ArchitecturalGalleryCellProps> =
         onMouseLeave={() => onHover(null)}
         onFocus={() => onHover(index)}
         onBlur={() => onHover(null)}
-        className={`relative w-full h-full overflow-hidden bg-[#141412] group cursor-pointer transition-all duration-500 border rounded-none ${
-          isSelected || isHovered
-            ? "border-[#c5a059]/60 shadow-lg z-20"
-            : "border-white/[0.06] hover:border-white/20 z-10"
+        className={`relative h-full min-h-0 w-full overflow-hidden bg-[#141412] group cursor-pointer border transition-all duration-500 ${
+          isSelected || isHovered ? "border-[#c5a059]/60 shadow-lg z-10" : "border-white/[0.06] hover:border-white/20"
         }`}
       >
-        {/* Sharp Edge Architectural Frame & Image */}
-        <div className="relative w-full h-full overflow-hidden rounded-none">
-          <img
-            src={item.image}
-            alt={item.alt || item.title}
-            className={`w-full h-full object-cover rounded-none transition-all duration-700 ease-out transform ${brightnessClass}`}
-            loading="lazy"
-          />
+        <img
+          src={item.image}
+          alt={item.alt || item.title}
+          className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out ${imageState}`}
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0c0c0b]/90 via-[#0c0c0b]/20 to-transparent" />
 
-          {/* Subtle gradient vignette at bottom for editorial legibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0b]/90 via-[#0c0c0b]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none" />
+        <div className="absolute left-4 top-4 z-10 flex items-center gap-2">
+          <span className="font-mono text-[11px] text-[#c5a059] tracking-widest font-semibold">{item.number}</span>
+          {item.categoryLabel && <span className="hidden sm:block font-mono text-[10px] text-white/60 uppercase tracking-[0.14em]">{item.categoryLabel}</span>}
+        </div>
 
-          {/* Top Editorial Badge */}
-          <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-10 flex items-center gap-2">
-            <span className="font-mono text-[11px] text-[#c5a059] bg-[#0c0c0b]/85 border border-white/10 px-2.5 py-0.5 tracking-widest uppercase rounded-none backdrop-blur-xs font-semibold">
-              {item.number}
-            </span>
-            {item.categoryLabel && (
-              <span className="hidden sm:inline-block font-mono text-[10px] text-[#a8a69e] bg-[#0c0c0b]/70 border border-white/[0.06] px-2 py-0.5 tracking-wider uppercase rounded-none backdrop-blur-xs">
-                {item.categoryLabel}
-              </span>
-            )}
-          </div>
-
-          {/* Top Right Action Icon */}
-          <div className="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 p-2 bg-[#0c0c0b]/80 border border-white/10 text-[#f7f6f2] group-hover:text-[#c5a059] group-hover:border-[#c5a059]/40 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-none transform translate-y-1 group-hover:translate-y-0">
-            <Eye className="w-3.5 h-3.5" />
-          </div>
-
-          {/* Bottom Editorial Caption Layer */}
-          <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 flex flex-col justify-end">
-            <div className="flex items-center justify-between gap-2">
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-[#c5a059] block mb-0.5">
-                  {item.tag || `STUDY ${item.number}`}
-                </span>
-                <h4 className="text-sm sm:text-base font-serif-editorial font-bold text-[#f7f6f2] tracking-tight group-hover:text-[#c5a059] transition-colors line-clamp-1">
-                  {item.title}
-                </h4>
-              </div>
-              <ArrowUpRight className="w-4 h-4 text-[#737168] group-hover:text-[#c5a059] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+        <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10">
+          <div className="flex items-end justify-between gap-3">
+            <div className="min-w-0">
+              <span className="block text-[10px] font-mono uppercase tracking-[0.16em] text-[#c5a059] mb-1">{item.tag || `Study ${item.number}`}</span>
+              <h4 className="truncate text-sm sm:text-base font-serif-editorial font-bold text-[#f7f6f2] tracking-tight group-hover:text-[#c5a059] transition-colors">{item.title}</h4>
             </div>
+            <ArrowUpRight className="w-4 h-4 shrink-0 text-[#a8a69e] group-hover:text-[#c5a059] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
           </div>
         </div>
       </div>
@@ -251,7 +182,6 @@ export const ArchitecturalGalleryCell: React.FC<ArchitecturalGalleryCellProps> =
   );
 };
 
-// Main Architectural Room Gallery Component
 export const ArchitecturalRoomGallery: React.FC<ArchitecturalRoomGalleryProps> = ({
   items = DEFAULT_GALLERY_ITEMS,
   activeRoomId,
@@ -260,38 +190,27 @@ export const ArchitecturalRoomGallery: React.FC<ArchitecturalRoomGalleryProps> =
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  // Layout area classes enforcing exact responsive asymmetry:
-  // Mobile (default): 4 visible images (Row 1 full, Row 2 split, Row 3 full)
-  // Tablet (md:): 12-col 3-row grid (dominant left, 2 stacked right, full bottom)
-  // Desktop (lg:): 2-col 5-row staggered asymmetric grid with negative space
+  // Explicit grid tracks prevent secondary cells from collapsing on larger breakpoints.
+  // Desktop: staggered 2-column architectural composition with fixed row tracks.
   const areaClasses = [
-    // Room 01 (Dominant Anchor)
-    "col-span-2 h-[260px] sm:h-[320px] md:col-span-8 md:row-span-2 md:h-auto lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-3 lg:h-auto",
-    // Room 02
-    "col-span-1 h-[180px] sm:h-[220px] md:col-span-4 md:row-span-1 md:h-auto lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-4 lg:h-auto",
-    // Room 03
-    "col-span-1 h-[180px] sm:h-[220px] md:col-span-4 md:row-span-1 md:h-auto lg:col-start-1 lg:col-end-2 lg:row-start-4 lg:row-end-6 lg:h-auto",
-    // Room 04
-    "col-span-2 h-[200px] sm:h-[260px] md:col-span-12 md:row-span-1 md:h-auto lg:col-start-2 lg:col-end-3 lg:row-start-3 lg:row-end-5 lg:h-auto",
+    "col-span-2 h-[300px] sm:h-[380px] md:col-span-8 md:row-span-2 md:h-auto lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:h-auto",
+    "col-span-1 h-[210px] sm:h-[250px] md:col-span-4 md:row-span-1 md:h-auto lg:col-start-1 lg:row-start-2 lg:row-span-2 lg:h-auto",
+    "col-span-1 h-[210px] sm:h-[250px] md:col-span-4 md:row-span-1 md:h-auto lg:col-start-1 lg:row-start-4 lg:row-span-2 lg:h-auto",
+    "col-span-2 h-[240px] sm:h-[300px] md:col-span-12 md:row-span-1 md:h-auto lg:col-start-2 lg:row-start-3 lg:row-span-2 lg:h-auto",
   ];
 
-  const handleCellClick = (item: GalleryItem) => {
-    if (onSelectRoom) {
-      onSelectRoom(item);
-    }
-  };
+  const handleCellClick = (item: GalleryItem) => onSelectRoom?.(item);
 
   return (
     <div className={`space-y-8 ${className}`}>
-      {/* Asymmetric Gallery Grid */}
-      <GalleryStagger className="grid grid-cols-2 md:grid-cols-12 lg:grid-cols-2 lg:grid-rows-5 gap-4 sm:gap-6 min-h-[480px] md:min-h-[540px] lg:min-h-[clamp(520px,45vw,720px)] w-full">
-        {items.slice(0, 4).map((item, idx) => (
+      <GalleryStagger className="grid w-full grid-cols-2 auto-rows-[150px] gap-4 sm:auto-rows-[190px] sm:gap-6 md:grid-cols-12 md:auto-rows-[190px] lg:grid-cols-2 lg:grid-rows-5 lg:auto-rows-[minmax(120px,1fr)] lg:h-[clamp(620px,52vw,780px)]">
+        {items.slice(0, 4).map((item, index) => (
           <ArchitecturalGalleryCell
             key={item.id}
             item={item}
-            index={idx}
-            gridClass={areaClasses[idx] || "col-span-1"}
-            isHovered={hoveredIndex === idx}
+            index={index}
+            gridClass={areaClasses[index] || "col-span-1"}
+            isHovered={hoveredIndex === index}
             isAnyHovered={hoveredIndex !== null}
             isSelected={activeRoomId === item.id}
             onHover={setHoveredIndex}
@@ -300,41 +219,24 @@ export const ArchitecturalRoomGallery: React.FC<ArchitecturalRoomGalleryProps> =
         ))}
       </GalleryStagger>
 
-      {/* Room Metadata Information Layer (Prompt Section 9) */}
       <div className="pt-4 border-t border-white/[0.08]">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <span className="font-mono text-xs uppercase tracking-[0.16em] text-[#737168] font-semibold">
-            SELECTED SPATIAL STUDIES
-          </span>
-
-          {/* Minimal Editorial List */}
+          <span className="font-mono text-xs uppercase tracking-[0.16em] text-[#737168] font-semibold">SELECTED SPATIAL STUDIES</span>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-            {items.slice(0, 4).map((item, idx) => {
-              const isFeatured = hoveredIndex === idx || activeRoomId === item.id;
+            {items.slice(0, 4).map((item, index) => {
+              const isFeatured = hoveredIndex === index || activeRoomId === item.id;
               return (
                 <button
                   key={item.id}
                   type="button"
                   onClick={() => handleCellClick(item)}
-                  onMouseEnter={() => setHoveredIndex(idx)}
+                  onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   className="text-left group cursor-pointer transition-colors"
                 >
-                  <div className="flex items-center gap-2.5">
-                    <span
-                      className={`font-mono text-xs transition-colors ${
-                        isFeatured ? "text-[#c5a059] font-bold" : "text-[#737168]"
-                      }`}
-                    >
-                      {item.number}
-                    </span>
-                    <span
-                      className={`font-mono text-xs uppercase tracking-[0.16em] truncate transition-colors ${
-                        isFeatured ? "text-[#c5a059] font-semibold" : "text-[#a8a69e] group-hover:text-[#f7f6f2]"
-                      }`}
-                    >
-                      {item.title}
-                    </span>
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className={`font-mono text-xs ${isFeatured ? "text-[#c5a059] font-bold" : "text-[#737168]"}`}>{item.number}</span>
+                    <span className={`font-mono text-xs uppercase tracking-[0.14em] truncate ${isFeatured ? "text-[#c5a059] font-semibold" : "text-[#a8a69e] group-hover:text-[#f7f6f2]"}`}>{item.title}</span>
                   </div>
                 </button>
               );
